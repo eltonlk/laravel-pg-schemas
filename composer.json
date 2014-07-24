@@ -1,6 +1,8 @@
 {
     "name": "eltonlk/laravel-pg-schemas",
-    "description": "",
+    "description": "Laravel package for managing postgres schemas.",
+    "keywords": [ "laravel", "postgres", "schemas" ],
+    "license" : "MIT",
     "authors": [
         {
             "name": "Elton Luis Kolling",
@@ -12,9 +14,6 @@
         "illuminate/support": "4.2.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-0": {
             "Eltonlk\\LaravelPgSchemas\\": "src/"
         }

@@ -19,6 +19,12 @@ class LaravelPgSchemasServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('eltonlk/laravel-pg-schemas');
+
+    $this->app->booting(function()
+    {
+      $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+      $loader->alias('PGSchema', 'Eltonlk\LaravelPgSchemas\Facades\PGSchema');
+    });
 	}
 
 	/**
@@ -28,7 +34,10 @@ class LaravelPgSchemasServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+    $this->app['pgschema'] = $this->app->share(function($app)
+    {
+        return new LaravelPgSchemas;
+    });
 	}
 
 	/**
