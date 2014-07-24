@@ -1,0 +1,23 @@
+{
+    "name": "eltonlk/laravel-pg-schemas",
+    "description": "",
+    "authors": [
+        {
+            "name": "Elton Luis Kolling",
+            "email": "eltonlk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Eltonlk\\LaravelPgSchemas\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
