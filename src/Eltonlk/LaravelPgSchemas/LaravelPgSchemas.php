@@ -43,8 +43,8 @@ class LaravelPgSchemas
     {
         $this->switchTo($schemaName, $args);
 
-        if (!$this->tableExists($schemaName, 'migrations'))
-            $this->runCommand('migrate:install', $args);
+        if (!$this->tableExists($schemaName, 'migrations', $args))
+            $this->runCommand('migrate:install', array_only($args, '--database'));
     }
 
   	/**
@@ -105,7 +105,7 @@ class LaravelPgSchemas
     protected function runCommand($commandName, $args = [])
     {
         // STDIN Fallback, we need that.
-        if(!defined("STDIN")) define('STDIN',fopen("php://stdin","r"));
+        if(!defined("STDIN")) define('STDIN', fopen("php://stdin","r"));
 
         // $args['--force'] = true;
         Artisan::call($commandName, $args);
@@ -134,7 +134,7 @@ class LaravelPgSchemas
             ->table('information_schema.tables')
             ->select('table_name')
             ->where('table_schema', '=', $schemaName)
-            ->get();
+            ->lists('table_name');
     }
 
   	/**
