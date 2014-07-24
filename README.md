@@ -10,6 +10,14 @@ Add the following to your `composer.json`:
 
     "eltonlk/laravel-pg-schemas": "dev-master"
 
+Add to your app.php file in the services providers section.
+
+    'providers' => array(
+        ...
+
+        'Eltonlk\LaravelPgSchemas\LaravelPgSchemasServiceProvider'
+    )
+
 ## Usage
 
 Assuming that you have your db configuration ready, meaning that
